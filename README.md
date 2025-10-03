@@ -107,6 +107,7 @@ npm start
 |----------|-------------|---------|
 | `TELEGRAM_BOT_TOKEN` | Your Telegram bot token | Required |
 | `TELEGRAM_CHAT_ID` | Your Telegram chat ID | Required |
+| `SEARCH_KEYWORD`  | Search keyword for exam locations | GDYNIA |
 | `CHECK_INTERVAL` | Check interval in minutes | 5 |
 | `TZ` | Timezone for logs | Europe/Warsaw |
 
@@ -117,7 +118,7 @@ The parser monitors: `https://egzaminy.uke.gov.pl/netpar/exams.json`
 Parameters:
 - `category=M` - Category M exams
 - `division_id=14` - Division 14
-- `q=gd` - Query parameter
+- `q=<search_keyword>` - Search keyword parameter
 - `page_limit=10` - Results per page
 - `page=1` - Page number
 - `_=<timestamp>` - Current timestamp (auto-generated)
@@ -175,11 +176,19 @@ Expected API response:
 {
   "exams": [
     {
-      "id": "exam_id",
-      "date": "2025-01-15",
-      "location": "Warsaw",
-      "type": "SRZ"
-    }
+        "id": 12996,
+        "number": "173/2025/M",
+        "date_exam": "2025-10-20",
+        "place_exam": "Politechnika Morska w Szczecinie",
+        "info": "Szczecin, ul. Wały Chrobrego 1-2, godzina 13:30",
+        "province_id": "32",
+        "province_name": "ZACHODNIOPOMORSKIE",
+        "examinations_count": 10,
+        "max_examinations": 15,
+        "category": "M",
+        "online": false,
+        "fullname": "173/2025/M, 2025-10-20, Politechnika Morska w Szczecinie [ZACHODNIOPOMORSKIE], Szczecin, ul. Wały Chrobrego 1-2, godzina 13:30"
+    },
   ],
   "meta": {
     "total_count": 1
@@ -191,7 +200,7 @@ Expected API response:
 
 ### Project Structure
 ```
-radio-srz-ekzamin-parser/
+radio-src-ekzamin-parser/
 ├── index.js              # Main application
 ├── package.json           # Dependencies
 ├── Dockerfile            # Docker configuration

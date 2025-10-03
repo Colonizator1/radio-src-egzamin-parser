@@ -3,7 +3,7 @@ version: '3.8'
 services:
   radio-parser:
     build: .
-    container_name: radio-srz-exam-parser
+    container_name: radio-src-exam-parser
     restart: unless-stopped
     environment:
       - NODE_ENV=production

@@ -8,6 +8,7 @@ class ExamParser {
     this.telegramBotToken = process.env.TELEGRAM_BOT_TOKEN;
     this.telegramChatId = process.env.TELEGRAM_CHAT_ID;
     this.checkInterval = process.env.CHECK_INTERVAL || 5; // minutes
+    this.searchKeyword = process.env.SEARCH_KEYWORD || 'GDYNIA';
     this.isRunning = false;
   }
 
@@ -19,7 +20,7 @@ class ExamParser {
   // Build API URL with current timestamp
   buildApiUrl() {
     const timestamp = this.getCurrentTimestamp();
-    return `${this.baseUrl}?category=M&division_id=14&q=pomorskie&page_limit=10&page=1&_=${timestamp}`;
+    return `${this.baseUrl}?category=M&division_id=14&q=${this.searchKeyword}&page_limit=10&page=1&_=${timestamp}`;
   }
 
   // Send Telegram notification
@@ -108,7 +109,7 @@ class ExamParser {
 
   // Start the parser
   start() {
-    console.log('🚀 Starting Radio SRZ Exam Parser');
+    console.log('🚀 Starting Radio SRC Exam Parser');
     console.log(`⏰ Check interval: ${this.checkInterval} minutes`);
     console.log(`🤖 Telegram Bot: ${this.telegramBotToken ? 'Configured' : 'Not configured'}`);
     console.log(`💬 Chat ID: ${this.telegramChatId || 'Not configured'}`);
