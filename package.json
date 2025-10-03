@@ -1,0 +1,24 @@
+{
+  "name": "radio-srz-ekzamin-parser",
+  "version": "1.0.0",
+  "description": "A Node.js parser that monitors radio exam API and sends Telegram notifications",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js"
+  },
+  "keywords": [
+    "radio",
+    "exam",
+    "parser",
+    "telegram",
+    "notification"
+  ],
+  "author": "Artur",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "node-cron": "^3.0.3",
+    "dotenv": "^16.3.1"
+  }
+}

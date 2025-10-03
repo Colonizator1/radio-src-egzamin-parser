@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  radio-parser:
+    build: .
+    container_name: radio-srz-exam-parser
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - TZ=Europe/Warsaw
+    env_file:
+      - .env
+    deploy:
+      resources:
+        limits:
+          memory: 128M
+          cpus: '0.5'
+        reservations:
+          memory: 64M
+          cpus: '0.25'
