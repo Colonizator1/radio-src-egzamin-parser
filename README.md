@@ -1,4 +1,4 @@
-# Radio SRZ Exam Parser
+# Radio SRC Exam Parser
 
 A Node.js application that monitors the Polish radio exam API and sends Telegram notifications when new exams are available.
 
@@ -23,7 +23,7 @@ A Node.js application that monitors the Polish radio exam API and sends Telegram
 
 ```bash
 git clone <your-repo>
-cd radio-srz-ekzamin-parser
+cd radio-src-egzamin-parser
 ```
 
 ### 2. Configure Environment Variables
